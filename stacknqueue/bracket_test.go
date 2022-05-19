@@ -1,4 +1,4 @@
-package stacknqueque
+package stacknqueue
 
 import (
 	"testing"
@@ -14,7 +14,7 @@ func TestBracket(t *testing.T) {
 	}{
 		{
 			name:   "bracket true",
-			input:  "{}[()]",
+			input:  "{[()()]}",
 			result: true,
 		},
 		{
