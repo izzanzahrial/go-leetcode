@@ -18,6 +18,7 @@ func flags(array []int) int {
 
 	fmt.Println(hash)
 
+	// TODO: still doesnt know how to find the max K flags
 	for i := 0; i < len(hash)-1; i++ {
 		if hash[i+1]-len(hash) >= hash[i+1]-hash[i] {
 			max += 1
