@@ -14,26 +14,30 @@ func commonPrimeDivisors(a, b []int) int {
 		}
 	}
 
-	// TODO: this part still wrong
-	for idx, val := range a {
-		for _, num := range prime {
-			i := checkDivisor(val, num)
-			j := checkDivisor(b[idx], num)
-			if i != j {
-				break
+	for i := 0; i < len(a); i++ {
+		ok := func() bool {
+			for _, num := range prime {
+				if num > a[i] || num > b[i] {
+					break
+				}
+				divA := checkDivisor(a[i], num)
+				divB := checkDivisor(b[i], num)
+				if divA != divB {
+					return false
+				}
 			}
+			return true
+		}()
+		if ok {
+			result += 1
 		}
-		result += 1
 	}
 
 	return result
 }
 
 func checkDivisor(i, j int) bool {
-	if i%j == 0 {
-		return true
-	}
-	return false
+	return i%j == 0
 }
 
 func checkPrime(num int) bool {
