@@ -1,4 +1,4 @@
-package main
+package dynamicprogramming
 
 func uniquePaths(m int, n int) int {
 	paths := make([][]int, m)
