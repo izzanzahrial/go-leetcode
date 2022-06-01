@@ -1,4 +1,4 @@
-package main
+package stacknqueue
 
 import "strconv"
 
@@ -18,8 +18,8 @@ func evalRPN(tokens []string) int {
 		} else {
 			if _, ok := operators[string(tokens[i])]; ok {
 				var val int
-				int1, _ := strconv.Atoi(stack[i-1])
-				int2, _ := strconv.Atoi(stack[i-2])
+				int1, _ := strconv.Atoi(stack[len(stack)-1])
+				int2, _ := strconv.Atoi(stack[len(stack)-2])
 
 				switch string(tokens[i]) {
 				case "+":
@@ -31,7 +31,7 @@ func evalRPN(tokens []string) int {
 				case "/":
 					val = int2 / int1
 				}
-				stack = append(stack[:i-2], strconv.Itoa(val))
+				stack = append(stack[:len(stack)-2], strconv.Itoa(val))
 			} else {
 				stack = append(stack, tokens[i])
 			}

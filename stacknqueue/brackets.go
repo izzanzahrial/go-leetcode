@@ -3,23 +3,25 @@ package stacknqueue
 // https://app.codility.com/programmers/lessons/7-stacks_and_queues/brackets/
 // TODO: index out of range for false result, and for true, there is one combination bracket left
 
-func brackets(str string) bool {
+func brackets(s string) bool {
 	var stack []string
-	hash := map[string]string{
+	oBracket := map[string]string{
 		"}": "{",
-		"]": "[",
 		")": "(",
+		"]": "[",
 	}
 
-	stack = append(stack, string(str[0]))
-
-	for i := 1; i < len(str); i++ {
-		if string(stack[len(stack)-1]) != hash[string(str[i])] {
-			stack = append(stack, string(str[i]))
+	for i := 0; i < len(s); i++ {
+		if len(stack) == 0 {
+			stack = append(stack, string(s[i]))
 		} else {
-			stack = append([]string{}, stack[:len(stack)-1]...)
+			if oBracket[string(s[i])] == stack[len(stack)-1] {
+				stack = stack[:len(stack)-1]
+			} else {
+				stack = append(stack, string(s[i]))
+			}
 		}
 	}
 
-	return stack == nil
+	return len(stack) == 0
 }
