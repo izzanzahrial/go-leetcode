@@ -1,6 +1,5 @@
-package main
+package stacknqueue
 
-// the big O of n is n square, not that good
 func dailyTemperatures(temperatures []int) []int {
 	var result []int
 
