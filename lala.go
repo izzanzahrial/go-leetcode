@@ -1,23 +1,12 @@
 package main
 
-// the big O of n is n square, not that good
-func dailyTemperatures(temperatures []int) []int {
-	var result []int
+import "math"
 
-	for i := 0; i < len(temperatures); i++ {
-		for j := i + 1; j < len(temperatures); j++ {
-			if temperatures[j] > temperatures[i] {
-				result = append(result, j-i)
-				break
-			}
-			if j == len(temperatures)-1 {
-				result = append(result, 0)
-			}
-		}
-		if i == len(temperatures)-1 {
-			result = append(result, 0)
-		}
+func findMin(nums []int) int {
+	min := math.MaxInt
+	left := 0
+	right := len(nums) - 1
+	for left <= right {
+
 	}
-
-	return result
 }
