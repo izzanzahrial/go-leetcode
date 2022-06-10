@@ -32,7 +32,7 @@ func TestWallsAndGates(t *testing.T) {
 
 	for _, test := range subTest {
 		t.Run(test.name, func(t *testing.T) {
-			result := WallsAndGates(test.rooms)
+			result := WallsAndGates2(test.rooms)
 			assert.Equal(t, test.expectedRes, result)
 		})
 	}
