@@ -1,9 +1,12 @@
-package main
+package graph
 
 /**
  * @param rooms: m x n 2D grid
  * @return: nothing
  */
+
+// https://www.lintcode.com/problem/663/
+
 func WallsAndGates(rooms [][]int) [][]int {
 	lenR := len(rooms)
 	lenC := len(rooms[0])
@@ -11,7 +14,7 @@ func WallsAndGates(rooms [][]int) [][]int {
 	for r := 0; r < lenR; r++ {
 		for c := 0; c < lenC; c++ {
 			if rooms[r][c] == 0 {
-				dfs(r, c, lenR, lenC, 0, &rooms)
+				dfsWalls(r, c, lenR, lenC, 0, &rooms)
 			}
 		}
 	}
@@ -19,7 +22,7 @@ func WallsAndGates(rooms [][]int) [][]int {
 	return rooms
 }
 
-func dfs(r, c, lenR, lenC, val int, rooms *[][]int) {
+func dfsWalls(r, c, lenR, lenC, val int, rooms *[][]int) {
 	if r < 0 || c < 0 || r >= lenR || c >= lenC || (*rooms)[r][c] == -1 {
 		return
 	}
@@ -28,10 +31,10 @@ func dfs(r, c, lenR, lenC, val int, rooms *[][]int) {
 	if (*rooms)[r][c] == 2147483647 {
 		(*rooms)[r][c] = min((*rooms)[r][c], val)
 	}
-	dfs(r+1, c, lenR, lenC, val, rooms)
-	dfs(r-1, c, lenR, lenC, val, rooms)
-	dfs(r, c+1, lenR, lenC, val, rooms)
-	dfs(r, c-1, lenR, lenC, val, rooms)
+	dfsWalls(r+1, c, lenR, lenC, val, rooms)
+	dfsWalls(r-1, c, lenR, lenC, val, rooms)
+	dfsWalls(r, c+1, lenR, lenC, val, rooms)
+	dfsWalls(r, c-1, lenR, lenC, val, rooms)
 }
 
 func min(i, j int) int {
