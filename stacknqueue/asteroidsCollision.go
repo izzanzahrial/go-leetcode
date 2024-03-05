@@ -20,6 +20,6 @@ func AsteroidCollision(asteroids []int) []int {
 			}
 		}
 	}
-
+	
 	return result
 }
