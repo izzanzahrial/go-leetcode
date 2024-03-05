@@ -1,7 +1,9 @@
 package sorting
 
 import (
+	"math/rand"
 	"sort"
+	"time"
 )
 
 // https://leetcode.com/problems/3sum/submissions/
@@ -36,3 +38,49 @@ func threeSum(nums []int) [][]int {
 
 	return result
 }
+
+type RandomizedSet struct {
+    set map[int]bool
+}
+
+
+func Constructor() RandomizedSet {
+    return RandomizedSet{
+        set: make(map[int]bool),
+    }
+}
+
+
+func (this *RandomizedSet) Insert(val int) bool {
+    if ok := this.set[val]; !ok {
+        this.set[val] = true
+        return true
+    }
+
+    return false
+}
+
+
+func (this *RandomizedSet) Remove(val int) bool {
+    if ok := this.set[val]; ok {
+        delete(this.set, val)
+		return true
+    }
+
+	return false
+}
+
+
+func (this *RandomizedSet) GetRandom() int {
+    rand.Seed(time.Now().UnixNano())
+	return rand.Intn(len(this.set))
+}
+
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Insert(val);
+ * param_2 := obj.Remove(val);
+ * param_3 := obj.GetRandom();
+ */
