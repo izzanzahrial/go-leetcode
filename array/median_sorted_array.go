@@ -2,6 +2,7 @@ package array
 
 import "sort"
 
+// https://leetcode.com/problems/median-of-two-sorted-arrays/submissions/
 func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	combine := append(nums1, nums2...)
 

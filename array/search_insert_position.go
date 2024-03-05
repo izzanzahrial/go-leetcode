@@ -1,5 +1,6 @@
 package array
 
+// https://leetcode.com/problems/search-insert-position/description/
 func SearchInsert(nums []int, target int) int {
 	left := 0
 	right := len(nums) - 1
