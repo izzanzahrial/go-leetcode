@@ -18,8 +18,8 @@ func MergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	}
 
 	root := &TreeNode{Val: root1.Val + root2.Val}
-	root.Left = mergeTrees(root1.Left, root2.Left)
-	root.Right = mergeTrees(root1.Right, root2.Right)
+	root.Left = MergeTrees(root1.Left, root2.Left)
+	root.Right = MergeTrees(root1.Right, root2.Right)
 
 	return root
 }
