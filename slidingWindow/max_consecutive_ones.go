@@ -2,7 +2,7 @@ package slidingwindow
 
 // TODO: need some fixing, missing result by 1
 // https://leetcode.com/problems/max-consecutive-ones-iii/solutions/3477843/golang-solution-good-explanation/?envType=study-plan-v2&envId=leetcode-75
-func longestOnes(nums []int, k int) int {
+func LongestOnes(nums []int, k int) int {
 	var max int
 	var left, right int
 
