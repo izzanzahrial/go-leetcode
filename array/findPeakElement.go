@@ -17,19 +17,11 @@ func FindPeakElement(nums []int) int {
 
 func isPeak(idx int, nums []int) bool {
 	if idx == 0 {
-		if nums[idx] > nums[idx+1] {
-			return true
-		}
-
-		return false
+		return nums[idx] > nums[idx+1]
 	}
 
 	if idx == len(nums)-1 {
-		if nums[idx] > nums[idx-1] {
-			return true
-		}
-
-		return false
+		return nums[idx] > nums[idx-1]
 	}
 
 	if nums[idx] > nums[idx+1] && nums[idx] > nums[idx-1] {
