@@ -1,6 +1,7 @@
 package backtrack
 
 // https://leetcode.com/problems/combination-sum/
+// https://www.youtube.com/watch?v=GBKI9VSKdGg&ab_channel=NeetCode
 func CombinationSum(candidates []int, target int) [][]int {
 	var result [][]int
 	var curr []int
