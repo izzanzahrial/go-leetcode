@@ -2,7 +2,9 @@ package backtrack
 
 import "sort"
 
-func combinationSum2(candidates []int, target int) [][]int {
+// https://leetcode.com/problems/combination-sum-ii/
+// https://www.youtube.com/watch?v=rSA3t6BDDwg&ab_channel=NeetCode
+func CombinationSum2(candidates []int, target int) [][]int {
 	var result [][]int
 	sort.Ints(candidates)
 	backtrack(0, 0, target, candidates, []int{}, &result)
@@ -23,6 +25,7 @@ func backtrack(idx, total, target int, candidates, curr []int, result *[][]int) 
 
 	var prev int
 	for i := idx; i < len(candidates); i++ {
+		// prevents using the same value multiple times at the same decision level
 		if candidates[i] == prev {
 			continue
 		}
