@@ -1,4 +1,4 @@
-package matrix
+package twodarray
 
 // https://leetcode.com/problems/matrix-diagonal-sum/
 func diagonalSum(mat [][]int) int {

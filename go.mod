@@ -1,6 +1,6 @@
 module github.com/izzanzahrial/go-leetcode
 
-go 1.17
+go 1.23.4
 
 require github.com/stretchr/testify v1.7.1
 
