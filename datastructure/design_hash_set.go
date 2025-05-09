@@ -5,7 +5,7 @@ type MyHashSet struct {
 	hash map[int]struct{}
 }
 
-func Constructor() MyHashSet {
+func ConstructorHashSet() MyHashSet {
 	return MyHashSet{
 		hash: make(map[int]struct{}),
 	}
