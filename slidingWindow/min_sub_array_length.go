@@ -2,6 +2,7 @@ package slidingwindow
 
 import "math"
 
+// https://leetcode.com/problems/minimum-size-subarray-sum/
 func minSubArrayLen(target int, nums []int) int {
 	left, total := 0, 0
 	result := math.MaxInt
