@@ -1,21 +1,25 @@
 package heap
 
-import "sort"
+import (
+	"sort"
+
+	"github.com/izzanzahrial/go-leetcode/datastructure"
+)
 
 // https://leetcode.com/problems/kth-largest-element-in-an-array/submissions/
 
 func findKthLargest(nums []int, k int) int {
-	heap := &heap{}
+	heap := datastructure.NewHeap()
 
 	for _, num := range nums {
-		heap.add(num)
+		heap.Add(num)
 	}
 
 	for i := 0; i < k-1; i++ {
-		heap.pop()
+		heap.Pop()
 	}
 
-	val := heap.pop()
+	val := heap.Pop()
 
 	return val
 }
