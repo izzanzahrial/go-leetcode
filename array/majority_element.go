@@ -1,24 +1,23 @@
 package array
 
 // https://leetcode.com/problems/majority-element/description/
-func majorityElement(nums []int) int {
-	currNum := nums[0]
-	currResult := 1
+func majorityElement(nums []int) []int {
+	if len(nums) == 1 {
+		return nums
+	}
 
-	// start at index 1 because we already initialize the first num in currNum
-	for i := 1; i < len(nums); i++ {
-		if currNum != nums[i] {
-			currResult--
+	numsMap := make(map[int]int)
+	for _, num := range nums {
+		numsMap[num]++
+	}
 
-			// if the current result equal to 0, we change the currNum
-			if currResult == 0 {
-				currResult = 1
-				currNum = nums[i]
-			}
-		} else {
-			currResult++
+	var result []int
+	k := len(nums) / 3
+	for key, num := range numsMap {
+		if num > k {
+			result = append(result, key)
 		}
 	}
 
-	return currNum
+	return result
 }
