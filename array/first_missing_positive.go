@@ -2,25 +2,28 @@ package array
 
 // https://leetcode.com/problems/first-missing-positive/
 // https://www.youtube.com/watch?v=8g78yfzMlao
+// the idea is to check from 1 to the max "missing" positive number within nums
+// how to get the max "missing" positive number within nums
+// you can get it by getting the length of the nums
+// e.g. if you have nums with the length of 9, meaning the max "missing" positive number is 9
 func firstMissingPositive(nums []int) int {
-	// Since we only searching for the first missing positive number
-	// the maximum positive number is length of the nums+1
-	maxPositive := len(nums) + 1
+	maxPositive := len(nums)
 
-	// Create hash map for nums
 	numsMap := make(map[int]struct{})
 	for _, num := range nums {
 		numsMap[num] = struct{}{}
 	}
 
+	// result start with 1 since we have to find the "minimum missing" positive number
 	result := 1
-	// We only have to check from 1 to maxPositive
 	for i := 1; i <= maxPositive; i++ {
-		// Since we looking through hash map, the time complexity is O(1)
+		// check if the current "minimum missing" positive number is exists
+		// if is, go the next number else break
+		// e.g. 1 exists in numsMap, check if 2 exists
 		if _, exists := numsMap[i]; exists {
 			result++
 		} else {
-			return i
+			break
 		}
 	}
 
