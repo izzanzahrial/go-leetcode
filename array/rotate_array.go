@@ -47,3 +47,22 @@ func rotate2(nums []int, k int) {
 	}
 	copy(nums, res)
 }
+
+func rotate3(nums []int, k int) {
+	numsLen := len(nums)
+	modK := k % numsLen
+	if modK == 0 {
+		return
+	}
+
+	tempNums := append([]int{}, nums[numsLen-modK:]...)
+	lastIdx := len(nums) - 1
+	for i := lastIdx - modK; i >= 0; i-- {
+		nums[lastIdx] = nums[i]
+		lastIdx--
+	}
+
+	for i, num := range tempNums {
+		nums[i] = num
+	}
+}
