@@ -7,15 +7,18 @@ import (
 
 // https://leetcode.com/problems/valid-palindrome/description/
 func isPalindrome(s string) bool {
-	regex, _ := regexp.Compile("[^a-zA-Z0-9]+")
-	s = regex.ReplaceAllString(s, "")
+	rgx, _ := regexp.Compile("[^a-zA-Z0-9]+")
+	s = rgx.ReplaceAllLiteralString(s, "")
 	s = strings.ToLower(s)
 
-	for i, j := 0, len(s)-1; i < j; i++ {
-		if s[i] != s[j] {
+	left, right := 0, len(s)-1
+	for left < right {
+		if s[left] != s[right] {
 			return false
 		}
-		j--
+
+		left++
+		right--
 	}
 
 	return true
