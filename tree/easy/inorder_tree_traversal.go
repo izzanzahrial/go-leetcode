@@ -28,3 +28,22 @@ func helper(root *tree.TreeNode, arr *[]int) {
 	*arr = append(*arr, root.Val)
 	helper(root.Right, arr)
 }
+
+// func inorderTraversal(root *tree.TreeNode) []int {
+// 	var result []int
+
+// 	var inorder func(root *tree.TreeNode)
+// 	inorder = func(root *tree.TreeNode) {
+// 		if root == nil {
+// 			return
+// 		}
+
+// 		inorder(root.Left)
+// 		result = append(result, root.Val)
+// 		inorder(root.Right)
+// 	}
+
+// 	inorder(root)
+
+// 	return result
+// }
