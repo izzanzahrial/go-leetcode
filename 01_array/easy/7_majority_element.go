@@ -69,3 +69,20 @@ func majorityElement3(nums []int) int {
 
 	return majorityNum
 }
+
+func majorityElement4(nums []int) int {
+	numsMap := make(map[int]int)
+
+	for _, num := range nums {
+		numsMap[num] += 1
+	}
+
+	n := len(nums) / 2
+	for key, count := range numsMap {
+		if count > n {
+			return key
+		}
+	}
+
+	return 0
+}
