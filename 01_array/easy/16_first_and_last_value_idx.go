@@ -3,6 +3,9 @@ package array
 // https://leetcode.com/problems/semi-ordered-permutation/
 func FirstAndLastValueIdx(nums []int) int {
 	var firstIdx, lastIdx int
+
+	// this is the part searching for the first index using left
+	// and also for last index using right
 	for left, right := 0, len(nums)-1; left <= right; left, right = left+1, right-1 {
 		if nums[left] == 1 {
 			firstIdx = left
