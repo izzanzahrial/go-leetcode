@@ -1,5 +1,6 @@
 package pointer
 
+// https://leetcode.com/problems/is-subsequence/description/
 func IsSubsequence(s string, t string) bool {
 	if len(s) == 0 {
 		return true

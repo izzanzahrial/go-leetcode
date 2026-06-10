@@ -1,5 +1,6 @@
 package pointer
 
+// https://leetcode.com/problems/move-zeroes/description/
 func MoveZeroes(nums []int) {
 	pivot := 0
 	search := 0
