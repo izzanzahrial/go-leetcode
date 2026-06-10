@@ -2,6 +2,7 @@ package array
 
 import "sort"
 
+// https://leetcode.com/problems/relative-sort-array/description/
 func relativeSortArray(arr1 []int, arr2 []int) []int {
 	result := make([]int, len(arr1))
 	hashMap := make(map[int]int, len(arr1))
